@@ -1,7 +1,9 @@
 {% extends 'ledger/base.html' %}
 
+{% block page_title %}
+    <i>Current Page:</i> "{{ recipe.name }}" by {{ recipe.author.name }}
+{% endblock %}
 {% block content %}
-<i> {{ recipe.name }} </i>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.ingredient.name }} : {{ ingredient.quantity }}</li>

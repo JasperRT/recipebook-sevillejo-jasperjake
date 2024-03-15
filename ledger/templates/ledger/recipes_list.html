@@ -1,14 +1,17 @@
 {% extends 'ledger/base.html' %}
 {% load static %}
 
+{% block page_title %}
+    <i>Current Page:</i> Recipes List
+{% endblock %}
 {% block content %}
     <ul>
         {% if recipes.count == 0 %}
-        <li> <i> No recipes found in the database. </i> </li>
+            <li><i>No recipes found in the database.</i></li>
         {% else %}
-        {% for recipe in recipes %}
-            <li><a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></li>
-        {% endfor %}
+            {% for recipe in recipes %}
+                <li><a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></li>
+            {% endfor %}
         {% endif %}
     </ul>
 {% endblock %}

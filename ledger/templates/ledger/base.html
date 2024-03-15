@@ -4,6 +4,24 @@
     <title>Recipe Book</title>
     <header>
         <b>Recipe Book</b>
+        <div id="user_button">
+            {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Logout Here!</button>
+                </form>
+            {% else %}
+                <a href="../accounts/login">
+                    <button type="button">Login Here!</button>
+                </a>
+                <br>
+            {% endif %}
+            <br>
+        </div>
+        <div id="page_title">
+            {% block page_title %}{% endblock %}
+        </div>
     </header>
 </head>
 <body>

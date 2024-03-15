@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <b>Welcome to Recipe Book!</b>
+        <i>Please enter your credentials below.</i>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </body>
+</html>
